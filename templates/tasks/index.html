@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}
+  <title>Home page</title>
+{% endblock %}
+{% block content %}
+  <h1 class="mb-4">TODO List</h1>
+  <ul class="list-group">
+    {% for task in tasks %}
+      <li class="list-group-item">
+        <strong>{{ task.content }}</strong>
+        {% if task.is_done %}
+          <!-- Green badge for "Done" -->
+          <span class="badge badge-success">Done</span>
+        {% else %}
+          <!-- Red badge for "Not Done" -->
+          <span class="badge badge-danger">Not Done</span>
+        {% endif %}
+        <br>
+        <small>Created: {{ task.datetime }}</small><br>
+        <small>Tags:</small>
+        {% if task.tags.exists %}
+          {% for tag in task.tags.all %}
+            <span class="badge badge-info">{{ tag.name }}</span>
+          {% endfor %}
+        {% else %}
+          <span class="text-muted">No tags</span>
+        {% endif %}
+      </li>
+    {% empty %}
+      <li class="list-group-item text-center text-muted">No tasks available</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
