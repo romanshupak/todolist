@@ -23,3 +23,17 @@ class CreateTaskView(generic.CreateView):
     fields = "__all__"
     success_url = reverse_lazy("tasks:index")
     template_name = "tasks/tasks_form.html"
+
+
+class UpdateTaskView(generic.UpdateView):
+    model = Task
+    fields = "__all__"
+    success_url = reverse_lazy("tasks:index")
+    template_name = "tasks/tasks_form.html"
+
+
+class DeleteTaskView(generic.DeleteView):
+    model = Task
+    template_name = "tasks/tasks_confirm_delete.html"
+    success_url = "tasks/tasks_form.html"
+
