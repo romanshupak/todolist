@@ -3,7 +3,12 @@
   <title>Home page</title>
 {% endblock %}
 {% block content %}
-  <h1 class="mb-4">TODO List</h1>
+  <h1 class="mb-4">
+    TODO List
+    <a href="{% url 'tasks:tasks-create' %}" class="btn btn-primary float-right">
+      Add Task
+    </a>
+  </h1>
   <ul class="list-group">
     {% for task in tasks %}
       <li class="list-group-item">
