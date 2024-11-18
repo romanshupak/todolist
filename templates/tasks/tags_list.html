@@ -6,7 +6,7 @@
 
 {% block content %}
   <h1 class="mb-4">Tags</h1>
-  <a href="{% url 'tasks:tasks-create' %}" class="btn btn-primary float-right">
+  <a href="{% url 'tasks:tags-create' %}" class="btn btn-primary float-right">
     Add
   </a>
   <table class="table">
@@ -22,10 +22,10 @@
       <tr>
         <td>{{ tag.name }}</td>
         <td>
-          <a href="{% url 'tasks:tasks-update' pk=tag.id %}">UPDATE</a>
+          <a href="{% url 'tasks:tags-update' pk=tag.id %}">UPDATE</a>
         </td>
         <td>
-          <a href="{% url 'tasks:tasks-delete' pk=tag.id %}">DELETE</a>
+          <a href="{% url 'tasks:tags-delete' pk=tag.id %}">DELETE</a>
         </td>
       </tr>
     {% empty %}
