@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
-from django.views import generic
+from django.views import generic, View
 
 from tasks.models import Task, Tag
 
@@ -56,3 +56,12 @@ class DeleteTagView(generic.DeleteView):
     model = Tag
     template_name = "tasks/tags_confirm_delete.html"
     success_url = reverse_lazy("tasks:index")
+
+
+class ToggleTaskStatusView(View):
+    def post(self, request, pk):
+        """Toggle the status of a task between done and not done."""
+        task = get_object_or_404(Task, pk=pk)
+        task.is_done = not task.is_done
+        task.save()
+        return redirect("tasks:index")
