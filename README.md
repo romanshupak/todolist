@@ -1,31 +1,52 @@
 # TODO List Application
 
 ## Overview
-The TODO List Application is a simple and efficient tool designed to help users organize their daily tasks. With features like tagging, task status updates, and deadline tracking, this app makes task management easy and intuitive.
+The TODO List Application is a straightforward tool designed to help users organize their daily tasks efficiently. With features like task tagging, deadline tracking, and a clear distinction between completed and pending tasks, the app ensures a seamless task management experience.
 
-# Features
+## Features
 
 ### Task Management
+* **Create, update, and delete tasks.**
+  * Tasks include:
+    * **Content:** A description of what needs to be done.
+    * **Datetime:** Automatically records when the task was created.
+    * **Deadline:** An optional field to specify when the task is due.
+    * **Completion Status:** Indicates whether the task is done or not.
+  * Tasks can have multiple tags for better categorization.
 
-* Create, update, and delete tasks effortlessly.
-* Toggle task status between "done" and "not done" with a single click.
-* Assign deadlines to tasks to improve time management.
+* **Toggle Task Status:**
+  * A "Complete" button marks a pending task as done.
+  * An "Undo" button reverts a completed task to pending status.
+
+* **Task Listing:**
+  * Tasks are displayed in order of:
+    * Pending tasks first.
+    * Newest tasks at the top.
 
 ### Tag Management
+* **Tags:**
+  * Tags represent themes or categories and include:
+    * **Name:** A descriptive name for the tag.
+  * A task can have multiple tags, and a tag can belong to multiple tasks.
+* **Create, update, and delete tags.**
 
-* Create, update, and delete tags to categorize tasks.
-* Assign multiple tags to a single task for better organization.
+### Pages
+* **Home Page:**
+  * Displays the TODO list with:
+    * All tasks, ordered as described.
+    * Links for updating, deleting, or toggling task status.
+    * A button to add new tasks.
+  * A sidebar with navigation links:
+    * Home Page
+    * Tag List Page
 
-### Viewing and Filtering
+* **Tag List Page:**
+  * Displays all tags in a table format.
+    * Each tag includes links for updating and deleting.
+  * A button to add new tags.
 
-* View all tasks in a list format with detailed information.
-* Search for specific tasks using keywords.
-* Filter tasks by tags for more focused management.
-
-### Optimized Queries
-
-* Uses `prefetch_related` to efficiently load tasks and their associated tags, enhancing performance.
-
+* **Add Task Page:** Form to create a new task.
+* **Add Tag Page:** Form to create a new tag.
 # Installation
 Python3 must be already installed
 
