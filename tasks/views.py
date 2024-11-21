@@ -16,6 +16,7 @@ def index(request):
 class TagsListView(generic.ListView):
     model = Tag
     template_name = "tasks/tags_list.html"
+    queryset = Tag.objects.all().prefetch_related("tasks")
 
 
 class CreateTaskView(generic.CreateView):
@@ -23,19 +24,6 @@ class CreateTaskView(generic.CreateView):
     fields = "__all__"
     success_url = reverse_lazy("tasks:index")
     template_name = "tasks/tasks_form.html"
-
-
-class UpdateTaskView(generic.UpdateView):
-    model = Task
-    fields = "__all__"
-    success_url = reverse_lazy("tasks:index")
-    template_name = "tasks/tasks_form.html"
-
-
-class DeleteTaskView(generic.DeleteView):
-    model = Task
-    template_name = "tasks/tasks_confirm_delete.html"
-    success_url = reverse_lazy("tasks:index")
 
 
 class CreateTagView(generic.CreateView):
